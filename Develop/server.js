@@ -23,7 +23,14 @@ app.get('/', (request,response) => {
     response.sendFile(path,join(__dirname + 'index.html'));
 })
 
-
+app.get('/exercise', (request,response) => {
+    console.log(__dirname + 'exercise.html')
+    response.sendFile(path,join(__dirname + 'index.html'));
+})
+app.get('/stats', (request,response) => {
+    console.log(__dirname + 'stats.html')
+    response.sendFile(path,join(__dirname + 'index.html'));
+})
 
 
     app.listen(PORT, function () {
