@@ -1,3 +1,7 @@
+const work = require("./workout")
+
+
+
 const API = {
   async getLastWorkout() {
     let res;
