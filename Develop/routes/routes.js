@@ -2,6 +2,14 @@ const express = require("express");
 const db = require("../model");
 const router = express.Router()
 
+// Put the post in here
+router.post("/api/workouts", ({ body }, res) => {
+    db.Workout.create(body).then((workitoutdb => {
+        res.json(workitoutdb);
+    })).catch(err => {
+        res.json(err);
+    });
+});
 router.get("/api/workouts", (req, res) => {
     db.Workout.find({}).then(workitoutdb => {
         res.json(workitoutdb);
@@ -9,6 +17,7 @@ router.get("/api/workouts", (req, res) => {
         res.json(err);
     });
 });
+
 
 // adding exersize to main screen
 router.put("api/workouts/id", (req,res) => {
