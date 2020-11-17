@@ -1,9 +1,8 @@
-const mongojs = require("mongojs");
-const app = require("express");
-const db = require("../model/workout");
+const express = require("express");
+const db = require("../model");
+const router = express.Router()
 
-
-app.get("/api/workouts", (req, res) => {
+router.get("/api/workouts", (req, res) => {
     db.Workout.find({}).then(workitoutdb => {
         res.json(workitoutdb);
     }).catch(err => {
@@ -12,7 +11,7 @@ app.get("/api/workouts", (req, res) => {
 });
 
 // adding exersize to main screen
-app.put("api/workouts/id", (req,res) => {
+router.put("api/workouts/id", (req,res) => {
     db.Workout.findOneAndUpdate(
         { __id:req.params.id },
         {
@@ -25,3 +24,15 @@ app.put("api/workouts/id", (req,res) => {
             res.json(err);
         });
 });
+
+router.get("/api/workouts/range", (req, res) => {
+    db.Workout.find({}).limit(7).then(workitoutdb => {
+        res.json(workitoutdb);
+    
+    }).catch(err => {
+        res.json(err);
+    });
+
+});
+
+module.exports = router

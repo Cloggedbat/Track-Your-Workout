@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 8080;
 var mongoose = require("mongoose");
 var logger = require("morgan");
 const path = require("path")
-// const apiRoutes = require(path.join(__dirname, "./routes/api"))
+const apiRoutes = require(path.join(__dirname, "/routes/routes"))
 mongoose.connect('mongodb://localhost/Workitout',
     {
         useNewUrlParser: true,
@@ -21,7 +21,8 @@ app.use(express.static(__dirname + "/public"));
 app.use(logger("dev"));
 
 
-
+// this is pulling in the router from routes
+app.use(apiRoutes)
 // Routes
 
 app.get('/', (request, response) => {
