@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-const db = require("../model/workout"); 
+const db = require("../model"); 
 
 mongoose.connect("mongodb://localhost/Workitout", {
   useNewUrlParser: true,
@@ -123,7 +123,7 @@ let workoutSeed = [
     ]
   }
 ];
-
+console.log("this is the db", db)
 db.Workout.deleteMany({})
   .then(() => db.Workout.collection.insertMany(workoutSeed))
   .then(data => {
