@@ -6,20 +6,25 @@ var mongoose = require("mongoose");
 var logger = require("morgan");
 const path = require("path")
 // const apiRoutes = require(path.join(__dirname, "./routes/api"))
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Workitout_db", { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/Workitout',
+    {
+        useNewUrlParser: true,
+        useFindAndModify: false
+    });
 
 
 
-//Middleware for data parsing
+//Middleware for data parsing to JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 app.use(logger("dev"));
 
-// require("./routes/api.js")(app)
-// app.use(apiRoutes)
 
-app.get('/', (request,response) => {
+
+// Routes
+
+app.get('/', (request, response) => {
     console.log(__dirname + 'index.html')
     response.sendFile(path.join(__dirname, + 'index.html'));
 })
@@ -33,11 +38,10 @@ app.get('/stats', (request, response) => {
     console.log(__dirname + '/stats.html')
     response.sendFile(path.join(__dirname, 'public/stats.html'));
 })
-
-
-    app.listen(PORT, function () {
-        console.log("App listening on PORT " + PORT);
-    });
+// Running the server PORT 
+app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
+});
 
 
 
