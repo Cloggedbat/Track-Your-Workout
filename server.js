@@ -8,13 +8,13 @@ const path = require("path")
 const apiRoutes = require(path.join(__dirname, "/routes/routes"))
 mongoose.connect 
 mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/deep-thoughts',
+    process.env.MONGODB_URI || ('mongodb://localhost/workitout',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
       useFindAndModify: false
-    }
+    })
   );
 
 
