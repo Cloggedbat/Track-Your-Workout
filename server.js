@@ -7,6 +7,7 @@ var logger = require("morgan");
 const path = require("path")
 const apiRoutes = require(path.join(__dirname, "/routes/routes"))
 mongoose.connect 
+<<<<<<< HEAD:server.js
 mongoose.connect(
     process.env.MONGODB_URI || ('mongodb://localhost/workitout',
     {
@@ -16,6 +17,13 @@ mongoose.connect(
       useFindAndModify: false
     })
   );
+=======
+process.env.MONGODB_URI || ('mongodb://localhost/Workitout',
+    {
+        useNewUrlParser: true,
+        useFindAndModify: false
+    });
+>>>>>>> parent of bd9ea1b... lets see if this deploys correctly:Develop/server.js
 
 
 
