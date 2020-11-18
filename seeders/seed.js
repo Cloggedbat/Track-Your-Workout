@@ -1,7 +1,7 @@
 let mongoose = require("mongoose");
 const db = require("../model"); 
 
-mongoose.connect("mongodb://localhost/Workitout1", {
+mongoose.connect("mongodb+srv://Cloggedbat:Toskiornottoski500!@cluster0.j5cbh.mongodb.net/workitout?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
