@@ -16,7 +16,7 @@
     "init": "^0.1.2",
     "mongo": "^0.1.0",
     "mongodb": "^3.6.3",
-    "mongoose": "^5.10.14",
+    "mongoose": "^5.10.15",
     "morgan": "^1.10.0",
     "path": "^0.12.7",
     "sequelize": "^6.3.5"
