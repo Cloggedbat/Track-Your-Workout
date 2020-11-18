@@ -7,11 +7,15 @@ var logger = require("morgan");
 const path = require("path")
 const apiRoutes = require(path.join(__dirname, "/routes/routes"))
 mongoose.connect 
-process.env.MONGODB_URI || ('mongodb://localhost/Workitout',
+mongoose.connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/deep-thoughts',
     {
-        useNewUrlParser: true,
-        useFindAndModify: false
-    });
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    }
+  );
 
 
 
